@@ -7,4 +7,8 @@ class LocalDataSourceImpl(private val dao: JokesDao) : LocalDataSource {
     override suspend fun getAllOldJokes(): List<Joke> {
         return dao.getAllJokes()
     }
+
+    override suspend fun insertJoke(joke: Joke) {
+        return dao.insertJoke(joke)
+    }
 }

@@ -4,4 +4,5 @@ import com.example.jokeapplication.model.Joke
 
 interface LocalDataSource {
     suspend fun getAllOldJokes(): List<Joke>
+    suspend fun insertJoke(joke: Joke)
 }
