@@ -40,6 +40,7 @@ class JokesAdapter(private val context: Context, private val jokes: List<Joke>) 
 
     fun setData(it: List<Joke>?) {
         list = it!!
+
         notifyDataSetChanged()
     }
 
