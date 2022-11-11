@@ -13,8 +13,7 @@ class MainRepoSourceImpl(
         return localDataSource.getAllOldJokes()
     }
 
-    override suspend fun getNewJoke(): String {
+    override suspend fun getNewJoke() {
         localDataSource.insertJoke(Joke(remoteDataSource.getJoke()))
-        return remoteDataSource.getJoke()
     }
 }

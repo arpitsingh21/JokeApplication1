@@ -1,6 +1,8 @@
 package com.example.jokeapplication.ui.adapters
 
 
+import android.os.SystemClock
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -17,6 +19,7 @@ class JokesViewModel(private val repository: MainRepoSource) : ViewModel() {
 
     fun getremoteJoke() {
         viewModelScope.launch(Dispatchers.IO) {
+            Log.d("Fetching joke", "" + SystemClock.currentThreadTimeMillis())
             repository.getNewJoke()
         }
     }

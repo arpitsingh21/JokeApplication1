@@ -5,5 +5,5 @@ import com.example.jokeapplication.model.Joke
 
 interface MainRepoSource {
     fun getAllOldJokes(): LiveData<List<Joke>>
-    suspend fun getNewJoke(): String
+    suspend fun getNewJoke()
 }

@@ -24,7 +24,7 @@ class JokesFragment : Fragment() {
 
     private val fetchJokeTask = object : Runnable {
         override fun run() {
-            minusOneSecond()
+            getJokesInMinute()
             mainHandler.postDelayed(this, 6000)
         }
     }
@@ -46,7 +46,6 @@ class JokesFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
 
         mainHandler = Handler(Looper.getMainLooper())
-        fetchJokeTask.run()
 
         initJokeCall()
 
@@ -65,13 +64,16 @@ class JokesFragment : Fragment() {
     }
 
     private fun initJokeCall() {
-
         jokesViewModel.getJokes().observe(viewLifecycleOwner, Observer {
-            jokesAdapter.setData(it)
+            if (it.size > 10) {
+                jokesAdapter.setData(it.subList(it.size - 10, it.size))
+            } else {
+                jokesAdapter.setData(it)
+            }
         })
     }
 
-    fun minusOneSecond() {
+    fun getJokesInMinute() {
         jokesViewModel.getremoteJoke()
     }
 
