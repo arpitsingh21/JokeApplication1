@@ -3,7 +3,7 @@ package com.example.jokeapplication.data.remote_services
 import retrofit2.http.GET
 
 interface JokesService {
-    @GET("api/")
+    @GET("api")
     suspend fun getJoke(
     ): String
 }
