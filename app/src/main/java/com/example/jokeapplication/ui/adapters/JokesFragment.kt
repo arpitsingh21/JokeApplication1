@@ -25,7 +25,7 @@ class JokesFragment : Fragment() {
     private val fetchJokeTask = object : Runnable {
         override fun run() {
             getJokesInMinute()
-            mainHandler.postDelayed(this, 6000)
+            mainHandler.postDelayed(this, 60000)
         }
     }
 
